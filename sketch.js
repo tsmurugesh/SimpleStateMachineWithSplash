@@ -44,12 +44,13 @@ var gTextOffset = 20;
 
 // load all images into an array
 function preload() {
-  images[0] = loadImage('assets/one.png');
-  images[1] = loadImage('assets/two.png');
-  images[2] = loadImage('assets/three.png');
-  images[3] = loadImage('assets/four.png');
-  images[4] = loadImage('assets/five.png');
+  images[0] = loadImage('assets/anger.PNG');
+  images[1] = loadImage('assets/ill.PNG');
+  images[2] = loadImage('assets/sleepy.PNG');
+  images[3] = loadImage('assets/stressed.PNG');
+  images[4] = loadImage('assets/vibe.PNG');
   images[5] = loadImage('assets/splash.png');
+
 }
 
 // Center drawing, drawFunction will be one for default
@@ -80,7 +81,7 @@ drawOne = function() {
    image(images[0],width/2, height/2);
 
    fill(0,0,0);
-   text("State One", width/2, height - gTextOffset);
+   text("anger", width/2, height - gTextOffset);
 }
 
 //-- drawTwo() will draw the image at index 1 from the array
@@ -88,7 +89,7 @@ drawTwo = function() {
    image(images[1],width/2, height/2);
 
    fill(240,120,0);
-   text("State Two", width/2, height - gTextOffset);
+   text("ill", width/2, height - gTextOffset);
 }
 
 //-- drawOne() will draw the image at index 2 from the array
@@ -96,7 +97,7 @@ drawThree = function() {
    image(images[2],width/2, height/2);
 
    fill(40,230,120);
-   text("State Three", width/2, height - gTextOffset);
+   text("sleepy", width/2, height - gTextOffset);
 }
 
 //-- drawOne() will draw the image at index 3 from the array
@@ -104,7 +105,7 @@ drawFour = function() {
    image(images[3],width/2, height/2);
 
    fill(255,255,178);
-   text("State Four", width/2, height - gTextOffset);
+   text("stressed", width/2, height - gTextOffset);
 }
 
 //-- drawOne() will draw the image at index 4 from the array
@@ -112,8 +113,9 @@ drawFive = function() {
    image(images[4],width/2, height/2);
 
    fill(230,50,50);
-   text("State Five", width/2, height - gTextOffset);
+   text("vibing", width/2, height - gTextOffset);
 }
+
 
 //-- drawSplash() will draw the image at index 4 from the array
 drawSplash = function() {
