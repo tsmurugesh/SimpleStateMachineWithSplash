@@ -38,6 +38,7 @@ var images = [];
 var a = 1;
 var b = 1;
 var easing = 0.08;
+var cursor;
 
 // Array of text
 var instructions  = [];
@@ -63,6 +64,8 @@ function preload() {
   instructions[1] = "☆use 1-5 to look through the moods☆";
   instructions[2] = "☆use 's' to go back to splash page☆";
   instructions[3] = "☆use 'i' to remind yourself of the intructions☆";
+
+  cursor = loadImage('assets/cursor.png');
 
 }
 
@@ -103,24 +106,40 @@ function draw() {
 drawOne = function() {
    push();
    textSize(50);
-   fill("#ff7e1c");
+   fill("#e8eff4");
    noStroke();
    text("anger", a,b);
    pop();
 
    image(images[0],width/2, height/2);
+
+   push();
+   textSize(50);
+   stroke("#e8eff4");
+   strokeWeight(2);
+   noFill();
+   text("anger", a,b);
+   pop();
 }
 
 //-- drawTwo() will draw the image at index 1 from the array
 drawTwo = function() {
    push();
    textSize(50);
-   fill("#ff7e1c");
+   fill("#e8eff4");
    noStroke();
    text("ill", a,b);
    pop();
 
    image(images[1],width/2, height/2);
+
+   push();
+   textSize(50);
+   stroke("#e8eff4");
+   strokeWeight(2);
+   noFill();
+   text("ill", a,b);
+   pop();
 
 }
 
@@ -128,12 +147,20 @@ drawTwo = function() {
 drawThree = function() {
    push();
    textSize(50);
-   fill("#ff7e1c");
+   fill("#e8eff4");
    noStroke();
    text("sleepy", a,b);
    pop();
 
    image(images[2],width/2, height/2);
+
+   push();
+   textSize(50);
+   stroke("#e8eff4");
+   strokeWeight(2);
+   noFill();
+   text("sleepy", a,b);
+   pop();
 
 }
 
@@ -141,24 +168,40 @@ drawThree = function() {
 drawFour = function() {
    push();
    textSize(50);
-   fill("#ff7e1c");
+   fill("#e8eff4");
    noStroke();
    text("stressed", a,b);
    pop();
 
    image(images[3],width/2, height/2);
+
+   push();
+   textSize(50);
+   stroke("#e8eff4");
+   strokeWeight(2);
+   noFill();
+   text("stressed", a,b);
+   pop();
 }
 
 //-- drawOne() will draw the image at index 4 from the array
 drawFive = function() {
    push();
    textSize(50);
-   fill("#ff7e1c");
+   fill("#e8eff4");
    noStroke();
    text("vibing", a,b);
    pop();
 
    image(images[4],width/2, height/2);
+
+   push();
+   textSize(50);
+   stroke("#e8eff4");
+   strokeWeight(2);
+   noFill();
+   text("vibing", a,b);
+   pop();
 
 }
 
@@ -169,6 +212,8 @@ drawSplash = function() {
 }
 
 drawInst = function(){
+  image(cursor,a,b);
+
   fill("red");
   for (let i = 0; i < instructions.length; i++ ){
     text(instructions[i], width/2, startY + (i*lineHeight));
