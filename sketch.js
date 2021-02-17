@@ -208,7 +208,22 @@ drawFive = function() {
 
 //-- drawSplash() will draw the image at index 4 from the array
 drawSplash = function() {
+  push();
+   textSize(50);
+   fill("#e8eff4");
+   noStroke();
+   text("click me", a,b);
+   pop();
+
    image(images[5],width/2, height/2);
+
+   push();
+   textSize(50);
+   stroke("#e8eff4");
+   strokeWeight(2);
+   noFill();
+   text("click me", a,b);
+   pop();
 }
 
 drawInst = function(){
