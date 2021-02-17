@@ -110,17 +110,17 @@ drawOne = function() {
    textSize(50);
    fill("#e8eff4");
    noStroke();
-   text("anger", a,b);
+   text("anger", a, b);
    pop();
 
-   image(images[0],width/2, height/2);
+   image(images[0], width/2, height/2);
 
    push();
    textSize(50);
    stroke("#e8eff4");
    strokeWeight(2);
    noFill();
-   text("anger", a,b);
+   text("anger", a, b);
    pop();
 }
 
@@ -130,17 +130,17 @@ drawTwo = function() {
    textSize(50);
    fill("#e8eff4");
    noStroke();
-   text("ill", a,b);
+   text("ill", a, b);
    pop();
 
-   image(images[1],width/2, height/2);
+   image(images[1], width/2, height/2);
 
    push();
    textSize(50);
    stroke("#e8eff4");
    strokeWeight(2);
    noFill();
-   text("ill", a,b);
+   text("ill", a, b);
    pop();
 
 }
@@ -154,14 +154,14 @@ drawThree = function() {
    text("sleepy", a,b);
    pop();
 
-   image(images[2],width/2, height/2);
+   image(images[2], width/2, height/2);
 
    push();
    textSize(50);
    stroke("#e8eff4");
    strokeWeight(2);
    noFill();
-   text("sleepy", a,b);
+   text("sleepy", a, b);
    pop();
 
 }
@@ -172,17 +172,17 @@ drawFour = function() {
    textSize(50);
    fill("#e8eff4");
    noStroke();
-   text("stressed", a,b);
+   text("stressed", a, b);
    pop();
 
-   image(images[3],width/2, height/2);
+   image(images[3], width/2, height/2);
 
    push();
    textSize(50);
    stroke("#e8eff4");
    strokeWeight(2);
    noFill();
-   text("stressed", a,b);
+   text("stressed", a, b);
    pop();
 }
 
@@ -192,17 +192,17 @@ drawFive = function() {
    textSize(50);
    fill("#e8eff4");
    noStroke();
-   text("vibing", a,b);
+   text("vibing", a, b);
    pop();
 
-   image(images[4],width/2, height/2);
+   image(images[4], width/2, height/2);
 
    push();
    textSize(50);
    stroke("#e8eff4");
    strokeWeight(2);
    noFill();
-   text("vibing", a,b);
+   text("vibing", a, b);
    pop();
 
 }
@@ -214,29 +214,28 @@ drawSplash = function() {
    textSize(50);
    fill("#e8eff4");
    noStroke();
-   text("click me", a,b);
+   text("click me", a, b);
    pop();
 
-   image(images[5],width/2, height/2);
+   image(images[5], width/2, height/2);
 
    push();
    textSize(50);
    stroke("#e8eff4");
    strokeWeight(2);
    noFill();
-   text("click me", a,b);
+   text("click me", a, b);
    pop();
 }
 
 //-- drawInst() will draw text array with the intructions
 drawInst = function(){
-  image(cursor,a,b);
+  image(cursor, a, b);
 
   fill("red");
   for (let i = 0; i < instructions.length; i++ ){
     text(instructions[i], width/2, startY + (i*lineHeight));
   }
-
 }
 
 
