@@ -35,32 +35,47 @@
 
 // Array of images
 var images = [];
+var a = 1;
+var b = 1;
+var easing = 0.08;
+
+// Array of text
+var instructions  = [];
+var lineHeight = 50;
+var startY = 300;
 
 // variable that is a function 
 var drawFunction;
 
 // offset from bottom of screen
-var gTextOffset = 20;
+var gTextOffset = 100;
 
 // load all images into an array
 function preload() {
-  images[0] = loadImage('assets/anger.PNG');
-  images[1] = loadImage('assets/ill.PNG');
-  images[2] = loadImage('assets/sleepy.PNG');
-  images[3] = loadImage('assets/stressed.PNG');
-  images[4] = loadImage('assets/vibe.PNG');
+  images[0] = loadImage('assets/anger.png');
+  images[1] = loadImage('assets/ill.png');
+  images[2] = loadImage('assets/sleepy.png');
+  images[3] = loadImage('assets/stressed.png');
+  images[4] = loadImage('assets/vibe.png');
   images[5] = loadImage('assets/splash.png');
+
+  instructions[0] = "☆welcome to my mood states!☆";
+  instructions[1] = "☆use 1-5 to look through the moods☆";
+  instructions[2] = "☆use 's' to go back to splash page☆";
+  instructions[3] = "☆use 'i' to remind yourself of the intructions☆";
 
 }
 
 // Center drawing, drawFunction will be one for default
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(800,800);
 
   // Center our drawing objects
   imageMode(CENTER);
   textAlign(CENTER);
-  textSize(24);
+  textSize(30);
+  textFont("Fugaz One");
+  //loadArray();
 
   // set to one for startup
   drawFunction = drawSplash;
@@ -68,7 +83,15 @@ function setup() {
 
 // Very simple, sets the background color and calls your state machine function
 function draw() {
-  background(192);
+  background("#fbcd15");
+
+  let targetX = mouseX;
+  let dx = targetX - a;
+  a += dx * easing;
+
+  let targetY = mouseY;
+  let dy = targetY - b;
+  b += dy * easing;
 
   // will call your state machine function
   drawFunction();
@@ -78,42 +101,65 @@ function draw() {
 
 //-- drawOne() will draw the image at index 0 from the array
 drawOne = function() {
-   image(images[0],width/2, height/2);
+   push();
+   textSize(50);
+   fill("#ff7e1c");
+   noStroke();
+   text("anger", a,b);
+   pop();
 
-   fill(0,0,0);
-   text("anger", width/2, height - gTextOffset);
+   image(images[0],width/2, height/2);
 }
 
 //-- drawTwo() will draw the image at index 1 from the array
 drawTwo = function() {
+   push();
+   textSize(50);
+   fill("#ff7e1c");
+   noStroke();
+   text("ill", a,b);
+   pop();
+
    image(images[1],width/2, height/2);
 
-   fill(240,120,0);
-   text("ill", width/2, height - gTextOffset);
 }
 
 //-- drawOne() will draw the image at index 2 from the array
 drawThree = function() {
+   push();
+   textSize(50);
+   fill("#ff7e1c");
+   noStroke();
+   text("sleepy", a,b);
+   pop();
+
    image(images[2],width/2, height/2);
 
-   fill(40,230,120);
-   text("sleepy", width/2, height - gTextOffset);
 }
 
 //-- drawOne() will draw the image at index 3 from the array
 drawFour = function() {
-   image(images[3],width/2, height/2);
+   push();
+   textSize(50);
+   fill("#ff7e1c");
+   noStroke();
+   text("stressed", a,b);
+   pop();
 
-   fill(255,255,178);
-   text("stressed", width/2, height - gTextOffset);
+   image(images[3],width/2, height/2);
 }
 
 //-- drawOne() will draw the image at index 4 from the array
 drawFive = function() {
+   push();
+   textSize(50);
+   fill("#ff7e1c");
+   noStroke();
+   text("vibing", a,b);
+   pop();
+
    image(images[4],width/2, height/2);
 
-   fill(230,50,50);
-   text("vibing", width/2, height - gTextOffset);
 }
 
 
@@ -121,6 +167,21 @@ drawFive = function() {
 drawSplash = function() {
    image(images[5],width/2, height/2);
 }
+
+drawInst = function(){
+  fill("red");
+  for (let i = 0; i < instructions.length; i++ ){
+    text(instructions[i], width/2, startY + (i*lineHeight));
+  }
+
+}
+
+// function loadArray(){
+//   instructions[0] = "welcome to my mood states!";
+//   instructions[1] = "use 1-5 to look through the moods";
+//   instructions[2] = "use 's' to go back to splash page";
+
+// }
 
 
 //========= TEMPLATE: add or change interface functions, as you like =========
@@ -146,15 +207,17 @@ function keyTyped() {
   else if( key === '5' ) {
   	drawFunction = drawFive;
   }
-
   else if( key === 's' ) {
     drawFunction = drawSplash;
+  }
+  else if( key === 'i' ) {
+    drawFunction = drawInst;
   }
 }
 
 function mousePressed() {
   // only change state if we are in splash screen
   if( drawFunction === drawSplash ) {
-    drawFunction = drawOne;
+    drawFunction = drawInst;
   }
 }
