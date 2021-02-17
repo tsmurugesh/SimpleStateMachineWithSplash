@@ -1,6 +1,6 @@
 /***********************************************************************************
-	SimpleStateMachine - TEMPLATE
-	by Scott Kildall
+	SimpleStateMachine -
+	by Tanvi Murugesh
 
 	Template:
 
@@ -35,15 +35,17 @@
 
 // Array of images
 var images = [];
-var a = 1;
-var b = 1;
-var easing = 0.08;
-var cursor;
 
 // Array of text
 var instructions  = [];
 var lineHeight = 50;
 var startY = 300;
+
+// easing variables 
+var a = 1;
+var b = 1;
+var easing = 0.08;
+var cursor;
 
 // variable that is a function 
 var drawFunction;
@@ -78,13 +80,13 @@ function setup() {
   textAlign(CENTER);
   textSize(30);
   textFont("Fugaz One");
-  //loadArray();
 
   // set to one for startup
   drawFunction = drawSplash;
 }
 
 // Very simple, sets the background color and calls your state machine function
+// easing calculations
 function draw() {
   background("#fbcd15");
 
@@ -226,6 +228,7 @@ drawSplash = function() {
    pop();
 }
 
+//-- drawInst() will draw text array with the intructions
 drawInst = function(){
   image(cursor,a,b);
 
@@ -235,13 +238,6 @@ drawInst = function(){
   }
 
 }
-
-// function loadArray(){
-//   instructions[0] = "welcome to my mood states!";
-//   instructions[1] = "use 1-5 to look through the moods";
-//   instructions[2] = "use 's' to go back to splash page";
-
-// }
 
 
 //========= TEMPLATE: add or change interface functions, as you like =========
