@@ -82,13 +82,6 @@ function setup() {
   textFont("Fugaz One");
 
   // easing information
-  let targetX = mouseX;
-  let dx = targetX - a;
-  a += dx * easing;
-
-  let targetY = mouseY;
-  let dy = targetY - b;
-  b += dy * easing;
 
   // set to one for startup
   drawFunction = drawSplash;
@@ -98,6 +91,8 @@ function setup() {
 // easing calculations
 function draw() {
   background("#fbcd15");
+
+  mouseEasing();
 
   // will call your state machine function
   drawFunction();
@@ -239,6 +234,15 @@ drawInst = function(){
   }
 }
 
+function mouseEasing{
+  let targetX = mouseX;
+  let dx = targetX - a;
+  a += dx * easing;
+
+  let targetY = mouseY;
+  let dy = targetY - b;
+  b += dy * easing;
+}
 
 //========= TEMPLATE: add or change interface functions, as you like =========
 
