@@ -234,7 +234,7 @@ drawInst = function(){
   }
 }
 
-function mouseEasing{
+function mouseEasing(){
   let targetX = mouseX;
   let dx = targetX - a;
   a += dx * easing;
