@@ -53,7 +53,7 @@ var drawFunction;
 // offset from bottom of screen
 var gTextOffset = 100;
 
-// load all images into an array
+// load all images and text into an array
 function preload() {
   images[0] = loadImage('assets/anger.png');
   images[1] = loadImage('assets/ill.png');
@@ -81,6 +81,15 @@ function setup() {
   textSize(30);
   textFont("Fugaz One");
 
+  // easing information
+  let targetX = mouseX;
+  let dx = targetX - a;
+  a += dx * easing;
+
+  let targetY = mouseY;
+  let dy = targetY - b;
+  b += dy * easing;
+
   // set to one for startup
   drawFunction = drawSplash;
 }
@@ -89,14 +98,6 @@ function setup() {
 // easing calculations
 function draw() {
   background("#fbcd15");
-
-  let targetX = mouseX;
-  let dx = targetX - a;
-  a += dx * easing;
-
-  let targetY = mouseY;
-  let dy = targetY - b;
-  b += dy * easing;
 
   // will call your state machine function
   drawFunction();
