@@ -234,6 +234,7 @@ drawInst = function(){
   }
 }
 
+// mouse easing stuff all in one place
 function mouseEasing(){
   let targetX = mouseX;
   let dx = targetX - a;
